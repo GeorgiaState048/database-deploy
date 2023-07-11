@@ -1,4 +1,6 @@
 from flask import Flask, render_template, jsonify
+import os
+from database import engine
 
 app = Flask(__name__)
 
@@ -27,6 +29,13 @@ JOBS = [
     'salary': '$150,000'
   }
 ]
+def load_jobs_from_db():
+   with engine.connect() as conn:
+    result = conn.execute(text("select * from jobs"))
+    
+    result_dicts = []
+    for row in result.all():
+        result_dicts.append(row._mapping)
 
 @app.route("/")
 def hello_jovian():
@@ -39,4 +48,8 @@ def list_jobs():
   return jsonify(JOBS)
 
 if __name__ == '__main__':
-  app.run(host='0.0.0.0', debug=True)
+  app.run(
+    host=os.getenv('IP', '0.0.0.0'),
+    port=int(os.getenv('PORT', 8080)),
+    debug=True
+)
