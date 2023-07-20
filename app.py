@@ -18,7 +18,7 @@ def hello_jovian():
 #   jobs = load_jobs_from_db()
 #   print(type(jobs))
 #   return jobs
-# keeps telling me jobs is not JSON Serializable, but this shouldnt be a problem now...
+# keeps telling me jobs is not JSON Serializable, but this shouldnt be a problem now
 
 
 if __name__ == '__main__':
