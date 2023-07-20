@@ -9,7 +9,8 @@ password: KeyboardMagic!013Visa
 Database Credentials:
 
 database: first-database
-username: 6fdp9nz71v13vbdf1fd3
+username: mh0k5egq4ygcnwgg7n8q
 host: aws.connect.psdb.cloud
-password: pscale_pw_35eTBvMOqdLvljTydWzvNRQYEGfKUjl93n9Fa3SxT8v
+password: pscale_pw_qkywmXJXazzzzGy4kf8OMXocVN1p0oBsdFWwWkIaL9n
+
 
