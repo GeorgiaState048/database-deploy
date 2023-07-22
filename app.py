@@ -12,7 +12,6 @@ def hello_jovian():
     return render_template(
       'home.html', 
       jobs=jobs, 
-      company_name='Jovian'
     )
 
 @app.route("/job/<id>") # <> serves as a variable, anything that comes after job/ is 'id' in this case.
