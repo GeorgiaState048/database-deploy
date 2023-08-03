@@ -1,6 +1,6 @@
-from flask import Flask, render_template, jsonify
+from flask import Flask, render_template, jsonify, request
 import os
-from database import load_jobs_from_db, load_job_from_db
+from database import load_jobs_from_db, load_job_from_db, add_application_to_db
 import json
 from json import JSONEncoder
 
@@ -21,6 +21,20 @@ def show_job(id):
       return "Not Found", 404
    return render_template(
       'jobpage.html',
+      job=job
+   )
+
+@app.route("/job/<id>/apply", methods=['post'])
+def apply_to_job(id):
+   data = request.form # when not using post, data is available in request.args
+   job = load_job_from_db(id)
+   add_application_to_db(id, data)
+   # store in db
+   # send acknowledgement
+   # display an acknowledgement
+   return render_template(
+      'application_submitted.html',
+      application=data,
       job=job
    )
    
